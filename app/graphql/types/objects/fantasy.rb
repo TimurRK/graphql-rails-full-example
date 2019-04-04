@@ -6,4 +6,5 @@ Types::Objects::Fantasy = GraphQL::ObjectType.define do
   field :created_at, !Types::Scalars::Datetime
   field :updated_at, !Types::Scalars::Datetime
 
+  field :book, Types::Objects::Book
 end
