@@ -1,0 +1,18 @@
+Types::Objects::Book = GraphQL::ObjectType.define do
+  name 'ObjectsBook'
+
+  field :id, !types.ID
+  field :title, types.String
+
+  field :user, -> { Types::Objects::User } do
+    resolve -> (obj, args, ctx) {
+      Loaders::Find.for(User).load(obj.user_id)
+    }
+  end
+
+  field :bookable, -> { types[Types::Objects::Bookable] }  do
+    resolve -> (obj, args, ctx) {
+      Loaders::ForeignKey.for(eval(obj.bookable_type), :id).load([obj.bookable_id])
+    }
+  end
+end
