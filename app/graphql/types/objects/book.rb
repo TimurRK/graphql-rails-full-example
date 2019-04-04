@@ -4,6 +4,9 @@ Types::Objects::Book = GraphQL::ObjectType.define do
   field :id, !types.ID
   field :title, types.String
 
+  field :created_at, !Types::Scalars::Datetime
+  field :updated_at, !Types::Scalars::Datetime
+
   field :user, -> { Types::Objects::User } do
     resolve -> (obj, args, ctx) {
       Loaders::Find.for(User).load(obj.user_id)
