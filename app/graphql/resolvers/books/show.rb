@@ -1,9 +1,7 @@
-module Resolvers
-  module Books
-    class Show < BaseResolver     
-      def call
-        Book.find(@args[:id])
-      end
-    end
+class Resolvers::Books::Show < Resolvers::BaseResolver
+
+  def call
+    Book.find(@args[:id])
   end
+
 end

@@ -1,9 +1,7 @@
-module Resolvers
-  module Users
-    class Show < BaseResolver     
-      def call
-        User.find(@args[:id])
-      end
-    end
+class Resolvers::Users::Show < Resolvers::BaseResolver
+
+  def call
+    User.find(@args[:id])
   end
+
 end

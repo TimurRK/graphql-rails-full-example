@@ -1,9 +1,7 @@
-module Resolvers
-  module Books
-    class Index < BaseResolver
-      def call
-        Book.all
-      end
-    end
+class Resolvers::Books::Index < Resolvers::BaseResolver
+
+  def call
+    Book.all
   end
+  
 end
