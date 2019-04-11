@@ -9,7 +9,7 @@ Types::Objects::Book = GraphQL::ObjectType.define do
 
   field :user, -> { Types::Objects::User } do
     resolve -> (obj, args, ctx) {
-      Loaders::Find.for(User).load(obj.user_id)
+      Loaders::Association.for(Book, :user).load(obj)
     }
   end
 
