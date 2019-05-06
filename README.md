@@ -1,24 +1,19 @@
-# README
+# Installation
+- Make sure you have PostgreSQL installed.
+- Clone this repo
+- ```bundle install``` to install required dependencies
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Launch
 
-Things you may want to cover:
+- ```rails db:create db:setup``` to create database, load schema and seed data
+- ```rails s``` to start the local server
 
-* Ruby version
+# Info
 
-* System dependencies
+Schema is defined in ```/app/graphql```.
 
-* Configuration
+Shows an implementation of GraphQL via [graphql-ruby](https://github.com/rmosolgo/graphql-ruby).
 
-* Database creation
+GraphiQL IDE is served by [graphiql-rails](https://github.com/rmosolgo/graphiql-rails)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A [graphql-batch](https://github.com/Shopify/graphql-batch) is used to solve n + 1 problems.
